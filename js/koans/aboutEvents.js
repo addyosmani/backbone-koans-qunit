@@ -114,18 +114,18 @@ test('Also can remove custom events from objects.', function() {
         spyCount3 = 0;
 
     var spy1 = function(){
-        ok( true, 'spy 1');
+        ok( true, 'Spy 1 callback executed');
         spyCount1 +=1;
         start();
     }
     var spy2 = function(){
-        ok( true, 'spy 2');
+        ok( true, 'Spy 2 callback executed');
         spyCount2+=1;
         start();
     }
     
     var spy3 = function(){
-        ok( true, 'spy 1');
+        ok( true, 'Spy 3 callback executed');
         spyCount3+=1;
         start();
     }
