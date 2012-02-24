@@ -1,4 +1,5 @@
 (function($) {
+
     var cache = {};
     
     function _render(elt, template, data, callback) {
@@ -9,6 +10,7 @@
         elt.append(html);
         callback();
     }
+
     
     /**
      * Fetches the Underscore.js template at the given path,
@@ -30,7 +32,9 @@
             cache[path] = _.template(data);
             _render(self, cache[path], obj, callback);
         });
-        
+
         return self;
     };
+
+    
 })(jQuery);
