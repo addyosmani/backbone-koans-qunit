@@ -2,8 +2,6 @@
 <html>
 <head>
     <title>Backbone Koans</title>
-    
-
     <script type="text/javascript" src="js/ext/jquery.js"></script>
     <script type="text/javascript" src="js/ext/underscore.js"></script>
     <script type="text/javascript" src="js/ext/template.js"></script>
@@ -12,8 +10,7 @@
     <script type="text/javascript" src="js/todos.js"></script>
     
 
-    <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js
-"></script>
+    <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js"></script>
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/qunit/qunit-1.2.0.css">
 
     <script type="text/javascript" src="js/koans/aboutEvents.js"></script>
@@ -26,7 +23,7 @@
 <body>
     <h1>Backbone Koans</h1>
     
- <h1 id="qunit-header">QUnit Test Suite</h1>  
+    <h1 id="qunit-header">QUnit Test Suite</h1>  
     <h2 id="qunit-banner"></h2>  
     <div id="qunit-testrunner-toolbar"></div>  
     <h2 id="qunit-userAgent"></h2>  
@@ -34,13 +31,11 @@
     <div id="qunit-fixture">test markup, will be hidden</div>
     
     <script type="text/javascript">
-    //var reporter = new KoansReporter();
     
     $(document).ready(function(evt) {
         _.extend(TodoList.prototype, {
             localStorage: new Store('koans-todos')
         });
-        
   
     });
     </script>

@@ -3,11 +3,14 @@
 module('About Backbone.Model');
     
     test('Can be created with default values for its attributes.', function() {
+        expect(1);
         var todo = new Todo();
         equal(todo.get('text'), "");
     });
     
     test('Will set passed attributes on the model instance when created.', function() {
+
+        expect(3);
         var todo = new Todo({ text: 'Get oil change for car.' });
         
         equal(todo.get('text'), "Get oil change for car.");
@@ -16,6 +19,8 @@ module('About Backbone.Model');
     });
     
     test('Will call a custom initialize function on the model instance when created.', function() {
+
+        expect(1);
         var toot = new Todo({ text: 'Stop monkeys from throwing their own crap!' });
         
         equal(toot.get('text'), 'Stop monkeys from throwing their own rainbows!');
@@ -23,6 +28,7 @@ module('About Backbone.Model');
     
     test('Fires a custom event when the state changes.', function() {
 
+        expect(1);
         var spy = function(){
             ok( true, 'change event callback called');
             start();
@@ -40,6 +46,9 @@ module('About Backbone.Model');
     });
     
     test('Can contain custom validation rules, and will trigger an error event on failed validation.', function() {
+        
+        expect(1);
+        
         var errorCallback = function(){
             ok( true, 'error callback called');
             start();

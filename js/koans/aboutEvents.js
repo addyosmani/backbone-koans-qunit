@@ -3,7 +3,6 @@
 module('About Backbone.Events', {
     
     setup: function() {
-        
         this.obj = {};
         _.extend(this.obj, Backbone.Events);
         this.obj.unbind(); // remove all custom events before each spec is run.
@@ -13,6 +12,7 @@ module('About Backbone.Events', {
     
     test('Can extend javascript objects to support custom events.', function() {
 
+        expect(3);
         var basicObject = {};
         
         // How would you give basicObject these functions?
@@ -27,6 +27,8 @@ module('About Backbone.Events', {
     
     test('Allows us to bind and trigger custom named events on an object.', function() {
         
+        expect(1);
+
         var callback = function(){
             ok('custom event callback called');
             start();
@@ -43,6 +45,8 @@ module('About Backbone.Events', {
     
     test('Also passes along any arguments to the callback when an event is triggered.', function() {
 
+        expect(1);
+
         var passedArgs = [];
         
         this.obj.bind('some event', function() {
@@ -57,6 +61,8 @@ module('About Backbone.Events', {
     });
     
     test('Can also bind the passed context to the event callback.', function() {
+
+        expect(2);
 
         var foo = { color: 'blue' };
         
@@ -99,6 +105,8 @@ module('About Backbone.Events', {
     
     test('Also can remove custom events from objects.', function() {
 
+        expect(4);
+
         var spyCount1 = 0, 
             spyCount2 = 0, 
             spyCount3 = 0;
@@ -106,18 +114,18 @@ module('About Backbone.Events', {
         var spy1 = function(){
             ok( true, 'spy 1');
             spyCount1 +=1;
-            //start();
+            start();
         }
         var spy2 = function(){
             ok( true, 'spy 2');
             spyCount2+=1;
-            //start();
+            start();
         }
         
         var spy3 = function(){
             ok( true, 'spy 1');
             spyCount3+=1;
-            //start();
+            start();
         }
 
         this.obj.bind('foo', spy1);
@@ -129,7 +137,7 @@ module('About Backbone.Events', {
 
         this.obj.unbind('foo', spy1);
 
-        //stop();
+        stop();
         this.obj.trigger('foo');
         
         //equal(spyCount1, 1);

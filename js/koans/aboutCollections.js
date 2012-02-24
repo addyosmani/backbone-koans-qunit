@@ -3,6 +3,9 @@
 module('About Backbone.Collection');
 
     test('Can add Model instances as objects and arrays.', function() {
+
+        expect(3);
+
         var todos = new TodoList();
         
         equal(todos.length, 0);
@@ -22,12 +25,14 @@ module('About Backbone.Collection');
     });
     
     test('Can have a url property to define the basic url structure for all contained models.', function() {
+        expect(1);
         var todos = new TodoList();
         equal(todos.url, '/todos/');
     });
     
     test('Fires custom named events when the models change.', function() {
 
+        expect(2);
         var todos = new TodoList();
         
         var addModelCallback = function(){
