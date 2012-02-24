@@ -1,4 +1,3 @@
-
 module('About Backbone.Collection');
 
 test('Can add Model instances as objects and arrays.', function() {
@@ -7,15 +6,15 @@ test('Can add Model instances as objects and arrays.', function() {
 
     var todos = new TodoList();
     equal(todos.length, 0);
-    
+
     todos.add({ text: 'Clean the kitchen' });
     equal(todos.length, 1);
-    
+
     todos.add([
         { text: 'Do the laundry', done: true }, 
         { text: 'Go to the gym'}
     ]);
-    
+
     equal(todos.length, 3);
 });
 
@@ -29,30 +28,21 @@ test('Fires custom named events when the models change.', function() {
 
     expect(2);
     var todos = new TodoList();
-    
-    var addModelCallback = function(){
-        ok( true, 'add model callback called');  
-        start(); 
-    }
 
-    stop();
+    var addModelCallback = this.spy();
+    var removeModelCallback = this.spy();
+
     todos.bind('add', addModelCallback);
-    
+    todos.bind('remove', removeModelCallback);
+
     // How would you get the 'add' event to trigger?
     todos.add({text:"New todo"});
-    
-    var removeModelCallback = function(){
-        ok( true, 'remove model callback called');
-        start();
-    }
 
-    stop();
-    todos.bind('remove', removeModelCallback);
-    
+    ok(addModelCallback.called);
+
     // How would you get the 'remove' callback to trigger?
     todos.remove(todos.last());
-    
+
+    ok(removeModelCallback.called);
+
 });
-
-
-
